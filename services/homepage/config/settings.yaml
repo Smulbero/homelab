@@ -1,0 +1,14 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/settings/
+
+providers:
+  openweathermap: openweathermapapikey
+  weatherapi: weatherapiapikey
+  finnhub: {{HOMEPAGE_VAR_FINNHUB}}
+
+target: _self
+
+headerStyle: clean
+
+language: en

@@ -1,0 +1,38 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services/
+
+- Networking:
+    - Pihole-1:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/pi-hole.svg
+        href: http://pihole1.smulberohub.lan        
+    - Pihole-2:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/pi-hole.svg
+        href: http://pihole2.smulberohub.lan
+    - Nginx Proxy Manager:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/nginx-proxy-manager.svg
+        href: http://npm.smulberohub.lan
+
+- Infrastructure:
+    - Gateway:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/router.svg
+        href: https://gateway.smulberohub.lan
+    - Proxmox:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/proxmox.svg
+        href: https://pve.smulberohub.lan:8006
+        widget:
+            type: proxmox
+            url: https://pve.smulberohub.lan:8006
+            username: {{HOMEPAGE_VAR_PVE_USERNAME}}
+            password: {{HOMEPAGE_VAR_PVE_PASSWORD}}
+
+- Entertainment:
+    - Jellyfin:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/jellyfin.svg
+        href: http://jellyfin.smulberohub.lan        
+    - Twitch:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/twitch.svg
+        href: https://twitch.tv/ 
+    - Youtube:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/youtube.svg
+        href: https://youtube.com/

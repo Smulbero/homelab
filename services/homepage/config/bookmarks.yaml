@@ -1,0 +1,22 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+
+- Github:
+    - freeCodeCamp projects:
+        - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/github.svg
+          href: https://github.com/Smulbero/fcc-projects
+    - Smulberohub:
+        - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/github.svg
+          href: https://github.com/Smulbero/smulberohub
+    - Cloud projects:
+        - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/github.svg
+          href: https://github.com/Smulbero/cloud-projects
+
+- Social:
+    - Reddit:
+        - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/reddit.svg
+          href: https://reddit.com/
+    - X:
+        - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/x.svg
+          href: https://x.com/home/

@@ -1,0 +1,21 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/info-widgets/
+
+- resources:
+    cpu: true
+    memory: true
+    disk: /
+
+- search:
+    provider: google
+    focus: ture
+    showSearchSuggestions: true
+
+- datetime:
+    text_size: 1x
+    locale: fi
+    format:
+        dateStyle: short
+        timeStyle: short
+        hourCycle: h23
