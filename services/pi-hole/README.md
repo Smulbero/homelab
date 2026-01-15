@@ -1,23 +1,24 @@
 # Pi-hole
 
-## Overview
-Pi-hole provides network wide DNS based ad blocking and DNS filtering. <br> 
-It acst as the primary DNS resolver for LAN and VPN connected clients. <br>
-<br>
+Pi-hole provides network wide DNS based ad blocking and DNS filtering. It acst as the primary DNS resolver for LAN and VPN clients.
+
 Two Pi-hole instances are deployed to eliminate single point of failure and provide redundancy.
 
-## Goals
-- Network wide ad blocking
-- High availability
-- Minimal resource usage
-
 ## Deployment
-- Platform: Proxmox
-- Virtualization: LXC containers
-- Instances:
-    - pihole-srv-1 (PIHOLE_ONE_IP_ADDRESS)
-    - pihole-srv-2 (PIHOLE_TWO_IP_ADDRESS)
 
-## Failure behavior
-- In case of instance failure, clients fall back to secondary instance
-- In case of Proxmox server failure, DNS resolving stops working
+- Platform: Proxmox
+- Virtualization: Unprivileged LXC containers
+- Operating system: Debian
+- Deployment model:
+    - Current: Manually provisioned
+    - Target state: Terraform managed (with Ansible if needed)
+
+## Instances
+
+| Name               | Role             | IP address  |
+| :-                 | :-               | :-          |
+| pve-pihole-srv-1   | Primary DNS      | pihole-1-ip |
+| pve-pihole-srv-2   | Secondary DNS    | pihole-2-ip |
+
+IP addresses are statically assigned according to the homelab IP plan. <br>
+Reference IP assingments datastore for correct IP addresses.

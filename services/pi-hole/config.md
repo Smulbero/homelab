@@ -12,7 +12,8 @@ In this setup, Pi-hole forwards DNS queries to Unbound instead of external DNS s
 This approach improves privacy, security and control over DNS resolution.
 
 ### Installation and Setup
-Unbound installation and baseline configuration follow the official Pi-hole [documentation](https://docs.pi-hole.net/guides/dns/unbound/#setting-up-pi-hole-as-a-recursive-dns-server-solution) <br>
+
+Unbound installation and baseline configuration follow the official Pi-hole [documentation](https://docs.pi-hole.net/guides/dns/unbound/#setting-up-pi-hole-as-a-recursive-dns-server-solution)
 
 ### Local configuration
 
