@@ -5,6 +5,7 @@ Date: 2026-01-07
 ## Status
 
 Accepted
+Partly superseded by [7. Naming Conventions](0007-naming-conventions.md)
 
 ## Context
 
