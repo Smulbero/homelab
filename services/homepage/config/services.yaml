@@ -5,31 +5,31 @@
 - Networking:
     - Pihole-1:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/pi-hole.svg
-        href:        
+        href: https://10.10.10.110/admin      
     - Pihole-2:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/pi-hole.svg
-        href: 
+        href: https://10.10.10.111/admin  
     - Nginx Proxy Manager:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/nginx-proxy-manager.svg
-        href: 
+        href: https://10.10.10.102:81  
 
 - Infrastructure:
     - Gateway:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/router.svg
-        href: 
+        href: https://10.10.10.1
     - Proxmox:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/proxmox.svg
-        href: 
+        href: https://10.10.10.100:8006
         widget:
             type: proxmox
-            url: 
+            url: https://10.10.10.100:8006
             username: {{HOMEPAGE_VAR_PVE_USERNAME}}
             password: {{HOMEPAGE_VAR_PVE_PASSWORD}}
 
 - Entertainment:
     - Jellyfin:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/jellyfin.svg
-        href:         
+        href: https://10.10.10.120:8096    
     - Twitch:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/twitch.svg
         href: https://twitch.tv/ 
@@ -37,7 +37,7 @@
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/youtube.svg
         href: https://youtube.com/
 
-- Calendar:
+- Misc:
     - Calendar widget:
         widget:
             type: calendar
@@ -45,8 +45,6 @@
             view: monthly 
             maxEvents: 10 
             showTime: true 
-
-- Stocks:
     - Stock widget:
         widget:
             type: stocks

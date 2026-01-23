@@ -27,9 +27,6 @@ layout:
   Entertainment:
     style: row
     columns: 3  
-  Calendar:
-    style: row
-    columns: 1
-  Stocks:
+  Misc:
     style: row
     columns: 2
