@@ -8,7 +8,23 @@ providers:
   finnhub: {{HOMEPAGE_VAR_FINNHUB}}
 
 target: _self
-
 headerStyle: clean
-
 language: en
+background: https://pixabay.com/images/download/nature-3082832_1920.jpg
+
+layout:
+  Networking:
+    tab: First
+    style: row
+    columns: 3
+  Infrastructure:
+    tab: First
+    style: row
+    columns: 2
+  Entertainment:
+    tab: First
+    style: row
+    columns: 3
+  Stocks:
+    tab: Second
+    style: row

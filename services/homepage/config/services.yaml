@@ -36,3 +36,21 @@
     - Youtube:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/youtube.svg
         href: https://youtube.com/
+
+- Calendar:
+    widget:
+        type: calendar
+        firstDayInWeek: monday
+        view: monthly 
+        maxEvents: 10 
+        showTime: true 
+        # timezone:
+        
+- Stocks:
+    widget:
+        type: stocks
+        provider: finnhub
+        showUSMarketStatus: true
+        watchlist:
+            - NVDA
+            - IREN
