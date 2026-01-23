@@ -9,7 +9,7 @@
 
 - search:
     provider: google
-    focus: ture
+    focus: true
     showSearchSuggestions: true
 
 - datetime:

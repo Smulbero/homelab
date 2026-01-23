@@ -20,3 +20,8 @@
     - X:
         - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/x.svg
           href: https://x.com/home/
+
+- Cloud Platforms:
+    - Microsoft Azure:
+        - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/azure.svg
+          href: https://portal.azure.com

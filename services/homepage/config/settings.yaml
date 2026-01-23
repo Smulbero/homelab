@@ -13,19 +13,17 @@ language: en
 background: https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg
 
 layout:
-  ...
   Networking:
-    tab: Services
     style: row
     columns: 3
+
   Infrastructure:
-    tab: Services
     style: row
     columns: 2
+
   Entertainment:
-    tab: Services
     style: row
     columns: 3
+
   Stocks:
-    tab: Stock Market
     style: row
