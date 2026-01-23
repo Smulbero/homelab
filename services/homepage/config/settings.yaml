@@ -10,21 +10,22 @@ providers:
 target: _self
 headerStyle: clean
 language: en
-background: https://pixabay.com/images/download/nature-3082832_1920.jpg
+background: https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg
 
 layout:
+  ...
   Networking:
-    tab: First
+    tab: Services
     style: row
     columns: 3
   Infrastructure:
-    tab: First
+    tab: Services
     style: row
     columns: 2
   Entertainment:
-    tab: First
+    tab: Services
     style: row
     columns: 3
   Stocks:
-    tab: Second
+    tab: Stock Market
     style: row
