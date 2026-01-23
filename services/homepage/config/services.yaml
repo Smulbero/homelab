@@ -38,19 +38,20 @@
         href: https://youtube.com/
 
 - Calendar:
-    widget:
-        type: calendar
-        firstDayInWeek: monday
-        view: monthly 
-        maxEvents: 10 
-        showTime: true 
-        # timezone:
-        
+    - Calendar widget:
+        widget:
+            type: calendar
+            firstDayInWeek: monday
+            view: monthly 
+            maxEvents: 10 
+            showTime: true 
+
 - Stocks:
-    widget:
-        type: stocks
-        provider: finnhub
-        showUSMarketStatus: true
-        watchlist:
-            - NVDA
-            - IREN
+    - Stock widget:
+        widget:
+            type: stocks
+            provider: finnhub
+            showUSMarketStatus: true
+            watchlist:
+                - NVDA
+                - IREN

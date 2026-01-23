@@ -10,7 +10,12 @@ providers:
 target: _self
 headerStyle: clean
 language: en
-background: https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg
+
+background:
+    image: https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg
+    blur: xl
+    brightness: 90
+    opacity: 60 
 
 layout:
   Networking:
