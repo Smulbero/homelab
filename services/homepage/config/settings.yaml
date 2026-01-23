@@ -16,14 +16,15 @@ layout:
   Networking:
     style: row
     columns: 3
-
   Infrastructure:
     style: row
     columns: 2
-
   Entertainment:
     style: row
-    columns: 3
-
+    columns: 3  
+  Calendar:
+    style: row
+    columns: 1
   Stocks:
     style: row
+    columns: 2
