@@ -2,11 +2,15 @@
 
 This document contains the manual steps to provision service container before infrastructure automation is introduced.
 
+---
+
 ## Prerequirities
 
 - Proxmox host
 - LXC template: Debian 13
 - Static IP allocation
+
+---
 
 ## LXC container settings
 
@@ -19,16 +23,20 @@ This document contains the manual steps to provision service container before in
     - IPv4: Static
     - Gateway: (ROUTER_IP_ADDRESS)
 
+---
+
 ## OS preparation
 
 ```bash
 apt update && apt upgrade -y
 ```
 
+---
+
 ## Installation
 
-Reference documentation: <br>
-https://www.wireguard.com/install/
+See official [WireGuard installation documentation](https://www.wireguard.com/install/) for up to date information
+
 
 ```bash
 sudo apt install wireguard
@@ -36,4 +44,4 @@ sudo apt install wireguard
 
 ### Post-install
 
-TBD
+See [configuration guide](/config.md)

@@ -1,24 +1,88 @@
-# Configuration
+# WireGuard Configuration
 
-Reference documentation: <br>
-https://www.wireguard.com/quickstart/#quick-start
+This document describes the WireGuard VPN configuration used in the homelab.
 
-## Server side setup
+## Table of Contents
 
-### Interface setup
+- [Configuration Files](#configuration-files)
+- [Server Configuration](#server-configuration)
+- [Client Configuration](#client-configuration)
+- [Key Generation](#key-generation)
+- [WireGuard Commands](#wireguard-commands)
+- [WireGuard Service](#wireguard-service)
+- [Router Configuration](#router-configuration)
+- [References](#references)
+
+---
+
+## Configuration Files
+
+WireGuard stores interface configurations in:
 
 ```bash
-# Create new network interface
-ip link add dev wg0 type wireguard
-
-# Assign ip to the interface
-ip address add dev wg0 [vpn_interface_ip_address]
-
-# Activate the interface
-ip link set up dev wg0
+/etc/WireGuard/wg0.conf
 ```
 
-### Key generation
+---
+
+## Server Configuration
+
+For private and public keys, see [key generation](#key-generation)
+
+### Interface Setup
+
+Setup WireGuard server interface in `wg0.conf` file:
+
+```ini
+[Interface]
+PrivateKey = <wg-server-private-key>
+ListenPort = <wg-listening-port> # E.g. 51000
+Address = <wg-tunnel-ip-address/cidr>
+```
+
+### Peer Clients
+
+Setup peer in `wg0.conf` file:
+
+```ini
+# Each client gets their own peer block
+[Peer]
+PublicKey = <wg-client-public-key>
+AllowedIPs = <wg-client-ip-address/32>
+```
+
+---
+
+## Client Configuration
+
+For private and public keys, see [key generation](#key-generation)
+
+### Interface Setup
+
+Setup WireGuard client interface in `wg0.conf` file:
+
+```ini
+[Interface]
+PrivateKey = <wg-client-private-key>
+Address = <client-ip-address/cidr>
+DNS = <pihole-lan-ip-address>
+```
+
+### Peer Server
+
+Setup peer in `wg0.conf` file:
+
+```ini
+[Peer]
+PublicKey = <wg-server-public-key>
+Endpoint = <home-network-public-ip>:<wg-listening-port>
+AllowedIPs = <home-network-address-space>, <wg-network-address-space>
+PersistentKeepalive = 25 # Optional
+```
+
+---
+
+## Key Generation
 
 ```bash
 # Change default file permissions
@@ -31,41 +95,66 @@ wg genkey > privatekey
 wg pubkey < privatekey > publickey
 ```
 
-### Setup a peer with a client
+---
 
-This part requires public key from the client
+## WireGuard Commands
 
-```bash
-# Get listening port
-wg
-
-# Setup a peer
-wg set wg0 peer [client_public_key] allowed-ips [client_interface_ip_address/32] endpoint [server_ip_address:wireguad_port]
-```
-
-## Client side setup
-
-### Setup a peer with a server
-
-#### Linux client
-
-##### Interface setup
+### Bring interface up
 
 ```bash
-# Create new network interface
-ip link add dev wg0 type wireguard
-
-# Assign ip to the interface
-ip address add dev wg0 [client_interface_ip_address]
-
-# Activate the interface
-ip link set up dev wg0
+sudo wg-quick up wg0
 ```
+
+### Bring interface down
 
 ```bash
-# Get listening port
-wg
-
-# Setup a peer
-wg set wg0 peer [server_public_key] allowed-ips [vpn_interface_ip_address/32] endpoint [public_ip_address:wireguard_port]
+sudo wg-quick down wg0
 ```
+
+### Restart interface
+
+```bash
+sudo wg-quick down wg0
+sudo wg-quick up wg0
+```
+
+---
+
+## WireGuard Service
+
+### Enable WireGuard at boot:
+
+```bash
+sudo systemctl enable wg-quick@wg0
+```
+
+### Start immediately:
+
+```bash
+sudo systemctl start wg-quick@wg0
+```
+
+### Verify:
+
+```bash
+systemctl status wg-quick@wg0
+```
+
+---
+
+## Router Configuration
+
+### Port Forward
+
+| Protocol    | External Port           | Internal IP       | Internal Port           |
+|:-           |:-                       |:-                 |:-                       |
+| UDP         | `<wg-listening-port>`   | `<wg-host-ip>`    | `<wg-listening-port>`   |
+
+---
+
+## References
+
+- [WireGuard Official Documentation](https://www.wireguard.com/)
+- [WireGuard Quick Start](https://www.wireguard.com/quickstart/)
+- [wg-quick Manual](https://man7.org/linux/man-pages/man8/wg-quick.8.html)
+- [wg Manual](https://man7.org/linux/man-pages/man8/wg.8.html)
