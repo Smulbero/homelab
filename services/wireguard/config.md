@@ -51,6 +51,43 @@ PublicKey = <wg-client-public-key>
 AllowedIPs = <wg-client-ip-address/32>
 ```
 
+### iptables / NAT
+
+Modify firewall rules to allow routing from VPN to LAN.
+
+The following command enables NAT (masquerading) so that traffic from the WireGuard network can reach the LAN. The rule is temporary and is removed when the system is rebooted.
+
+```bash
+sudo iptables -t nat -A POSTROUTING \
+    -s <wg-network-address-space/cidr> \
+    -o <interface-id-connected-to-lan> # E.g eth0 \
+    -j MASQUERADE
+```
+
+#### Verify the Rule
+
+```bash
+sudo iptables -t nat -L -n -v
+```
+
+The output should contain a 'MASQUERADE' rule.
+
+#### Make the Rule Persistent
+
+Install the persistence package:
+
+```bash
+sudo apt install iptables-persistent
+```
+
+During installation, choose **Yes** when asked whether to save the current IPv4 rules.
+
+If the package was installed before the rule was created, save the current rules manually:
+
+```bash
+sudo netfilter-persistent save
+```
+
 ---
 
 ## Client Configuration
@@ -152,6 +189,25 @@ systemctl status wg-quick@wg0
 
 ---
 
+## Troubleshooting
+
+### Traffic doens't flow from VPN network to LAN
+
+Verify the following:
+
+- NAT (MASQUERADE) rule exists
+- Client `AllowedIPs` includes the LAN subnet
+
+Useful commands:
+
+```bash
+sudo wg
+sudo iptables -t nat -L -n -v
+```
+
+If the NAT rule is missing, see [iptables / NAT](#iptables--nat).
+
+---
 ## References
 
 - [WireGuard Official Documentation](https://www.wireguard.com/)
