@@ -11,6 +11,7 @@ This document describes the WireGuard VPN configuration used in the homelab.
 - [WireGuard Commands](#wireguard-commands)
 - [WireGuard Service](#wireguard-service)
 - [Router Configuration](#router-configuration)
+- [Troubleshooting](#troubleshooting)
 - [References](#references)
 
 ---
